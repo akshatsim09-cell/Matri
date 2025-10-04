@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MAITRI: AI Assistant for Astronauts</title>
+  <style>
+    :root {
+      --bg-light: #f4f4f4;
+      --bg-dark: #1e1e1e;
+      --text-light: #000;
+      --text-dark: #fff;
+      --accent: #0077ff;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-light);
+      transition: all 0.3s ease;
+    }
+    header, footer {
+      background-color: var(--accent);
+      color: white;
+      padding: 1em;
+      text-align: center;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 1em;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    main {
+      padding: 2em;
+    }
+    section {
+      margin-bottom: 2em;
+    }
+    .card {
+      background: white;
+      padding: 1em;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .chatbot {
+      border: 1px solid #ccc;
+      padding: 1em;
+      border-radius: 8px;
+      background: #fafafa;
+    }
+    .theme-toggle {
+      position: fixed;
+      top: 1em;
+      right: 1em;
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 0.5em 1em;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .login {
+      display: flex;
+      flex-direction: column;
+      max-width: 300px;
+      margin: auto;
+    }
+    .login input, .login select {
+      margin: 0.5em 0;
+      padding: 0.5em;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .login button {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 0.5em;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .dark-mode {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
+    }
+    .dark-mode .card, .dark-mode .chatbot {
+      background-color: #2c2c2c;
+      color: white;
+    }
+    select {
+      padding: 0.5em;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+
+  <header>
+    <h1>🚀 MAITRI: AI Assistant for Astronauts</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Overview</a></li>
+        <li><a href="#">Features</a></li>
+        <li><a href="#">Chatbot</a></li>
+        <li><a href="#">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>🧠 Project Overview</h2>
+      <p><strong>ID:</strong> 25175</p>
+      <p><strong>Title:</strong> MAITRI: AI Assistant for Psychological & Physical Well-Being of Astronauts</p>
+      <p><strong>Organization:</strong> ISRO | Department of Space</p>
+      <p><strong>Category:</strong> Software | Space Technology</p>
+    </section>
+
+    <section class="card">
+      <h2>🔍 Core Functionalities</h2>
+      <ul>
+        <li>🎤 Emotion detection via voice tone and facial expressions</li>
+        <li>💬 Supportive interactions and evidence-based interventions</li>
+        <li>🛠️ Real-time chatbot with adaptive responses</li>
+        <li>🔐 Secure login and astronaut dashboard</li>
+        <li>🎨 Theme switching for mood regulation</li>
+        <li>📴 Offline support for isolated missions</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>🧠 Emotion Detection</h2>
+      <ul>
+        <li>👤 Astronaut: Commander Aryan</li>
+        <li>🎙️ Voice Tone: Calm</li>
+        <li>📸 Facial Expression: Neutral</li>
+        <li>🧭 Mood Score: 7.8 / 10</li>
+      </ul>
+    </section>
+
+    <section class="chatbot">
+      <h2>💬 MAITRI Chatbot</h2>
+      <p>User: I'm feeling anxious.</p>
+      <p>MAITRI: I'm here for you. Let's try a breathing exercise together. 🌬️</p>
+    </section>
+
+    <section class="card">
+      <h2>🌬️ Guided Breathing</h2>
+      <button onclick="alert('Inhale... Hold... Exhale...')">Start Exercise</button>
+    </section>
+
+    <section class="card">
+      <h2>🎨 Mood-Based Themes</h2>
+      <select onchange="setMoodTheme(this.value)">
+        <option value="">Select Theme</option>
+        <option value="calm">Calm Blue</option>
+        <option value="focus">Focus Mode</option>
+        <option value="relax">Relaxing Sunset</option>
+      </select>
+    </section>
+
+    <section class="card">
+      <h2>📴 Offline Support</h2>
+      <p><strong>Status:</strong> Available</p>
+      <p>MAITRI runs locally during communication blackouts.</p>
+    </section>
+
+    <section class="card">
+      <h2>🧘‍♂️ Wellness Tips</h2>
+      <div id="tipBox">"Stay hydrated and stretch every 2 hours."</div>
+      <button onclick="nextTip()">Next Tip</button>
+    </section>
+
+    <section class="card">
+      <h2>📊 Mission Health Summary</h2>
+      <ul>
+        <li>🧠 Avg Mood Score: 8.2</li>
+        <li>💬 Chatbot Interactions: 124</li>
+        <li>🌬️ Exercises Completed: 37</li>
+        <li>📴 Offline Hours Supported: 12</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>🔐 Role-Based Login</h2>
+      <form class="login">
+        <select>
+          <option>Astronaut</option>
+          <option>Mission Psychologist</option>
+          <option>ISRO Admin</option>
+        </select>
+        <input type="text" placeholder="Username" required />
+        <input type="password" placeholder="Password" required />
+        <button type="submit">Login</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 MAITRI | Smart India Hackathon | Team Akshat</p>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('dark-mode');
+    }
+
+    function setMoodTheme(mood) {
+      const themes = {
+        calm: '#cce7ff',
+        focus: '#fffbe6',
+        relax: '#ffe0cc'
+      };
+      document.body.style.backgroundColor = themes[mood] || '';
+    }
+
+    const tips = [
+      "Stay hydrated and stretch every 2 hours.",
+      "Practice 4-7-8 breathing to calm nerves.",
+      "Use MAITRI’s journal to reflect daily.",
+      "Listen to ambient sounds for relaxation."
+    ];
+    let tipIndex = 0;
+    function nextTip() {
+      tipIndex = (tipIndex + 1) % tips.length;
+      document.getElementById("tipBox").innerText = tips[tipIndex];
+    }
+  </script>
+</body>
+</html>
